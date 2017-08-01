@@ -2,22 +2,54 @@ html, body {
 	margin: 0;
 } 
 snake {
-	display: -webkit-flex;
-	display: flex;
-	flex-wrap: wrap;
-	width: 150px;
 	margin: 20px auto 0;
+	width: 375px;
+	display: block;
 }
-	.snake__item {
-		text-align: center;
-		line-height: 30px;
-		width: 30px;
-		height: 30px;
-		background: #ccc;
+	.snake__info {
+		margin-bottom: 10px;
+		font: 18px/1 Arial;
 	}
-	.snake__item_s {
-		background: #2988b5;
+	.snake__wrap {
+		display: -webkit-flex;
+		display: flex;
+		flex-wrap: wrap;
+		width: 100%;
+		border-top: 1px solid #d1d2c8;
+		border-left: 1px solid #d1d2c8;
 	}
-	.snake__item_f {
-		background: #ecdf3b;
+		.snake__item {
+			text-align: center;
+			line-height: 30px;
+			width: 25px;
+			height: 25px;
+			background: #ededed;
+			border-bottom: 1px solid #d1d2c8;
+			border-right: 1px solid #d1d2c8;
+			position: relative;
+			box-sizing: border-box;
+			position: relative;
+			-webkit-transition: background ease 2s;
+			transition: background ease 2s;			
 	}
+		.snake__item_s {
+			 background: #677329; 
+			 border: none;
+			-webkit-transition: none;
+			transition: none;
+		} 
+		.snake__item_s_head {
+			background: #5a6621;
+		}
+		.snake__item_f:after {
+			content: '';
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			border-radius: 50%;
+			background: #dda51e;
+		    box-shadow: 0 0 0 3px rgba(243, 192, 67, 0.7);
+		    z-index: 2;	
+		}

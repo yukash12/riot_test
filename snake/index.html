@@ -13,7 +13,9 @@
 	<script src="snake.js" type="riot/tag"></script>
 
 	<script>
-		riot.mount('snake');
+		riot.compile(function() {
+			riot.mount('snake');
+		});
 	</script>
 
 </body>

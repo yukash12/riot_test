@@ -1,16 +1,25 @@
 <snake>	
-	<div
-		class = {snake__item : true, snake__item_s : snake.indexOf(i) != -1 , snake__item_f : i == food}
-		each = { field, i in grid }>
-		{snake.indexOf(i)}
+	<div class="snake__info">Длина змейки: {snake.length - 3}</div>	
+	<div class="snake__wrap">
+		<div
+			class = {
+				snake__item : true, 
+				snake__item_s : snake.indexOf(i) != -1, 
+				snake__item_s_head : snake.indexOf(i) == (snake.length-1),
+				snake__item_f : i == food
+
+			}
+			each = { field, i in grid }>
+		</div>			
 	</div>			
 	
 	<script>
-		this.fieldW = this.fieldH = 5,
+		this.fieldW = this.fieldH = 15,
 		this.snake = [ 0,1,2 ],
 		this.direction = 39, 
 		this.food = 20,
-		this.timerId;
+		this.timerId,
+		this.speed = 250;
 
 		this.grid = new Array(this.fieldW * this.fieldH);
 
@@ -34,11 +43,10 @@
 			}
 			
 			if(this.snake.indexOf(newHead) != -1) {
-				console.log('Вы умерли :(');
+				alert('вы проигралим :(');
 				clearTimeout(this.timerId);
 				return;
 			} else if(newHead == this.food) {
-				console.log('Это еда!');
 				this.food = this.newFood(0, this.fieldW*this.fieldH-1);
 			} else {
 				this.snake.shift();
@@ -67,7 +75,7 @@
 		  return result;
 		}
 
-		this.timerId = setInterval( this.step , 1000);
+		this.timerId = setInterval( this.step , this.speed);
 		document.addEventListener("keydown", this.changeDirection);
 	</script>
 </snake>	
