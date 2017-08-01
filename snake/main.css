@@ -1,0 +1,23 @@
+html, body {
+	margin: 0;
+} 
+snake {
+	display: -webkit-flex;
+	display: flex;
+	flex-wrap: wrap;
+	width: 150px;
+	margin: 20px auto 0;
+}
+	.snake__item {
+		text-align: center;
+		line-height: 30px;
+		width: 30px;
+		height: 30px;
+		background: #ccc;
+	}
+	.snake__item_s {
+		background: #2988b5;
+	}
+	.snake__item_f {
+		background: #ecdf3b;
+	}
